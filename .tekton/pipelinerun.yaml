@@ -21,7 +21,14 @@ spec:
     - name: revision
       value: "{{ revision }}"
   pipelineRef:
-    name: nodejs-pipeline
+    resolver: cluster
+    params:
+    - name: kind
+      value: pipeline
+    - name: name
+      value: nodejs-pipeline
+    - name: namespace
+      value: openshift-pipelines
   workspaces:
     - name: source
       volumeClaimTemplate:
